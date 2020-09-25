@@ -1,0 +1,35 @@
+[
+  {
+    "questionText": "Which of the following statement(s) represent(s) Aristotle's view on reality?\n(1) Sensible objects are eternal.\n(2) Existence of sensible objects depends on forms.\n(3) Reality is not found in the realm of forms.",
+    "answerChoice": [
+      "(2) only",
+      "(3) only",
+      "(1) and (2) only",
+      "(2) and (3) only"
+    ],
+    "correctAnswer": 0,
+    "feedback": "Read Chap. 3, Para. 3-4"
+  },
+  {
+    "questionText": "Concerning ‘form’ and ‘matter’, Aristotle said that…",
+    "answerChoice": [
+      "‘form’ represents the properties of sensible objects.",
+      "’form’ and ‘matter’ exist independently.",
+      "‘matter’ can be reduced to  four elements.",
+      "‘form’ is the perfect idea of a sensible object."
+    ],
+    "correctAnswer": 1,
+    "feedback": "Read Chap. 3, Para. 7-8"
+  },
+  {
+    "questionText": "In Aristotle’s view of the universe, the order of the five elements starting from the centre of the universe is:",
+    "answerChoice": [
+      "earth, water, air, fire, aether",
+      "fire, earth, water, air, aether",
+      "earth, water, fire, air, aether",
+      "aether, water, earth, air, fire"
+    ],
+    "correctAnswer": 2,
+    "feedback": "Read Chap. 3, Para. 26"
+  }
+]
