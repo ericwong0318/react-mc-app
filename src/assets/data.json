@@ -8,7 +8,7 @@
       "None of aboove"
     ],
     "correctAnswer": 1,
-    "feedback": "Do more Math"
+    "feedback": "do more Math"
   },
   {
     "questionText": "Where is Paris?",
@@ -19,7 +19,7 @@
       "United Kingdom"
     ],
     "correctAnswer": 2,
-    "feedback": "Try to read world map"
+    "feedback": "try to read world map"
   },
   {
     "questionText": "In Aristotle’s view of the universe, the order of the five elements starting from the centre of the universe is:",
