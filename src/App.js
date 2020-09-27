@@ -1,13 +1,24 @@
 import React from "react";
-//question bank
-import data from "/assets/data.json";
-//jquery
+/**
+ * Question banks
+ */
+import data from "./assets/data.json";
+/**
+ * jQuery
+ */
 import $ from "jquery";
-//react boostrap need to combine with bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
+/**
+ * React boostrap need to combine with bootstrap
+ */
+import "bootstrap/dist/css/bootstrap.css";
 import { Jumbotron, Container, Row } from "react-bootstrap";
+/**
+ * CSS
+ */
 import "./App.css";
-//Components
+/**
+ * Components
+ */
 import { FirstPage } from "./FirstPage";
 import { Navigatebar } from "./Navigatebar";
 import { ScoreContent } from "./ScoreContent";
@@ -16,66 +27,103 @@ import { Question } from "./Question";
 import { Answer } from "./Answer";
 import { FinishPage } from "./FinishPage";
 
+/**
+ * Main content of the website, switch between FirstPage (instruction), MC question (questions) and FinalPage (Result of MC questions)
+ */
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //page status
+      /**
+       * Page status state
+       */
       isFirstPage: true,
       isSubmitted: false,
       isCorrect: false,
-      //Question & Answer state
+      /**
+       * Quetion state
+       */
       questionNo: 0,
       totalQuestionNo: data.length,
-      //Question state
       questionText: data[0].questionText,
-      //Answer state
+      /**
+       * Answer state
+       */
       answerChoice: data[0].answerChoice,
       correctAnswer: data[0].correctAnswer,
       feedback: data[0].feedback,
-      //Button
+      /**
+       * Button label state
+       */
       btnLabel: "Submit",
-      //Score
-      score: 0,
+      /**
+       * Score state
+       */
+      correctScore: 0,
       wrongScore: 0,
       sName: "Undefined",
     };
+    /**
+     * Function binding
+     */
     this.handleQuestionChange = this.handleQuestionChange.bind(this);
   }
 
+  /**
+   * onClick event of the button
+   */
   handleClick() {
-    var correctAnswer = this.state.correctAnswer;
-    var answerChoice = this.state.answerChoice;
-    var isSubmitted = this.state.isSubmitted;
-    var score = this.state.score;
-    var wrongScore = this.state.wrongScore;
-    var isFirstPage = this.state.isFirstPage;
+    /**
+     * State
+     */
+    let correctAnswer = this.state.correctAnswer;
+    let answerChoice = this.state.answerChoice;
+    let isSubmitted = this.state.isSubmitted;
+    let correctScore = this.state.correctScore;
+    let wrongScore = this.state.wrongScore;
+    let isFirstPage = this.state.isFirstPage;
 
+    /**
+     * If the user is in the first page, then click the button will bring him to MC question page
+     */
     if (isFirstPage === true) {
-      // first page
+      /**
+       * set isFirstPage to false, so the programme can enter MC question page
+       */
       this.setState({
         isFirstPage: false,
       });
+      /**
+       * If the user is in the MC question page, performs MC question page's logic
+       */
     } else {
-      // change to next question
+      /**
+       * Change to next question
+       */
       if (isSubmitted === true) {
         this.handleQuestionChange();
         return null;
       } else {
-        // check correstness
-        var radioCheckedVal = $("form input[type=radio]:checked").val();
+        /**
+         * Check correctness
+         */
+        let radioCheckedVal = $("form input[type=radio]:checked").val();
         if (answerChoice[correctAnswer] === radioCheckedVal) {
-          //Correct
+          /**
+           * If the answer is correct, then it increaes correctScore and updates the states
+           */
           console.log("correct");
-          score += 1;
+          correctScore += 1;
           this.setState({
             isSubmitted: true,
             isCorrect: true,
             btnLabel: "Next Question",
-            score: score,
+            correctScore: correctScore,
           });
         } else {
-          //Wrong
+          /**
+           * If the answer is wrong, then it increaes wrongScore and updates the states
+           */
           console.log("wrong");
           wrongScore += 1;
           this.setState({
@@ -89,13 +137,23 @@ class MainContent extends React.Component {
     }
   }
 
+  /**
+   * Change the MC question to next question
+   * If there are no more question, go to the FinishPage
+   */
   handleQuestionChange() {
-    var totalQuestionNo = this.state.totalQuestionNo;
+    let totalQuestionNo = this.state.totalQuestionNo;
     this.setState((state) => ({
       questionNo: state.questionNo + 1,
     }));
+    /**
+     * The questionNo is more than totalQuestionNo, so the MC question are all answered.
+     */
     if (this.state.questionNo >= totalQuestionNo - 1) {
       return null;
+      /**
+       * Initalize the status of the MC question
+       */
     } else {
       this.setState((state) => ({
         isSubmitted: false,
@@ -109,39 +167,57 @@ class MainContent extends React.Component {
   }
 
   render() {
-    //Status
-    var isFirstPage = this.state.isFirstPage;
-    var isSubmitted = this.state.isSubmitted;
-    //Question
-    var questionNo = this.state.questionNo;
-    var totalQuestionNo = this.state.totalQuestionNo;
-    var questionText = this.state.questionText;
-    //Answer
-    var answerChoice = this.state.answerChoice;
-    var correctAnswer = this.state.correctAnswer;
-    //Button
-    var btnLabel = this.state.btnLabel;
-    //Score
-    var score = this.state.score;
-    var wrongScore = this.state.wrongScore;
-    var sName = this.state.sName;
-    //Determine render content
+    /**
+     * Page status state
+     */
+    let isFirstPage = this.state.isFirstPage;
+    let isSubmitted = this.state.isSubmitted;
+    /**
+     * Question state
+     */
+    let questionNo = this.state.questionNo;
+    let totalQuestionNo = this.state.totalQuestionNo;
+    let questionText = this.state.questionText;
+    /**
+     * Answer state
+     */
+    let answerChoice = this.state.answerChoice;
+    let correctAnswer = this.state.correctAnswer;
+    /**
+     * Button label state
+     */
+    let btnLabel = this.state.btnLabel;
+    /**
+     * Score state
+     */
+    let correctScore = this.state.correctScore;
+    let wrongScore = this.state.wrongScore;
+    let sName = this.state.sName;
+    /**
+     * Determine render content
+     */
     if (isFirstPage === true) {
-      //First page of the website
+      /**
+       * Render FirstPage
+       */
       return (
         <FirstPage handleClick={this.handleClick.bind(this)} sName={sName} />
       );
     } else if (questionNo > totalQuestionNo - 1) {
-      //Final page of the website
-      return <FinishPage score={score} wrongScore={wrongScore} />;
+      /**
+       * Final page
+       */
+      return <FinishPage correctScore={correctScore} wrongScore={wrongScore} />;
     } else {
-      var answerChoiceCorrect = data[questionNo].answerChoice[correctAnswer];
-      //MC quetions
+      let answerChoiceCorrect = data[questionNo].answerChoice[correctAnswer];
+      /**
+       * MC quetions page
+       */
       return (
         <Container>
           <Row>
             <ScoreContent
-              score={score}
+              correctScore={correctScore}
               wrongScore={wrongScore}
               totalQuestionNo={totalQuestionNo}
             />

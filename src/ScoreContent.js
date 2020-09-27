@@ -2,27 +2,30 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ProgressBar, Badge, Card } from "react-bootstrap";
 
+/**
+ * After the user answer the question, show repective feedback to him, such as progress bar and score
+ */
 export class ScoreContent extends React.Component {
   render() {
-    var score = this.props.score;
-    var wrongScore = this.props.wrongScore;
-    var totalQuestionNo = this.props.totalQuestionNo;
+    let correctScore = this.props.correctScore;
+    let wrongScore = this.props.wrongScore;
+    let totalQuestionNo = this.props.totalQuestionNo;
 
-    var scoreBadge = (
+    let scoreBadge = (
       <h4>
         <Badge pill variant="success">
-          Score: {score}
+          Score: {correctScore}
         </Badge>
       </h4>
     );
 
-    var scoreProgressBar = (
+    let scoreProgressBar = (
       <Card bg="primary">
         <ProgressBar>
           <ProgressBar
             variant="success"
             label={`✓`}
-            now={score} //score / totalQuestionNo
+            now={correctScore} 
             key={1}
             max={totalQuestionNo}
           />

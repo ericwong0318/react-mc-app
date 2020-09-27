@@ -1,11 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form } from "react-bootstrap";
+
+/**
+ * Render the answer section of the MC question
+ */
 export class Answer extends React.Component {
   render() {
-    //render form
-    var btnLabel = this.props.btnLabel;
-    var listItems = this.props.answerChoice.map((val, index) => (
+    let btnLabel = this.props.btnLabel;
+    let listItems = this.props.answerChoice.map((val, index) => (
       <Form.Check
         name="groupOptions"
         type="radio"

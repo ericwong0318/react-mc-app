@@ -1,0 +1,35 @@
+[
+  {
+    "questionText": "1 + 1 =",
+    "answerChoice": [
+      "1",
+      "2",
+      "3",
+      "None of aboove"
+    ],
+    "correctAnswer": 1,
+    "feedback": "Do more Math"
+  },
+  {
+    "questionText": "Where is Paris?",
+    "answerChoice": [
+      "Germany",
+      "United States",
+      "France",
+      "United Kingdom"
+    ],
+    "correctAnswer": 2,
+    "feedback": "Try to read world map"
+  },
+  {
+    "questionText": "In Aristotle’s view of the universe, the order of the five elements starting from the centre of the universe is:",
+    "answerChoice": [
+      "earth, water, air, fire, aether",
+      "fire, earth, water, air, aether",
+      "earth, water, fire, air, aether",
+      "aether, water, earth, air, fire"
+    ],
+    "correctAnswer": 0,
+    "feedback": "Read Chap. 3, Para. 26 of In Dialogue with Nature"
+  }
+]

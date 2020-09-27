@@ -1,6 +1,10 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
-export function Navigatebar(props) {
+
+/**
+ * Show navigate bar
+ */
+export function Navigatebar() {
   const navbarMC = (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand href="/">

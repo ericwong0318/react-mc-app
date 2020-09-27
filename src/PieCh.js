@@ -1,12 +1,15 @@
 import React, { PureComponent } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 
+/**
+ * Show pie chart
+ */
 export class PieCh extends PureComponent {
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/c9pL8k61/";
 
   render() {
     const data = [
-      { name: "Correct", value: this.props.score },
+      { name: "Correct", value: this.props.correctScore },
       { name: "Incorrect", value: this.props.wrongScore },
     ];
 

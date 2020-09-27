@@ -1,5 +1,9 @@
 import React from "react";
 import { Jumbotron, ListGroup } from "react-bootstrap";
+
+/**
+ * Show instructions
+ */
 export function Instruction() {
   return (
     <Jumbotron>
